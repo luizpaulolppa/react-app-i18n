@@ -1,10 +1,10 @@
 import React from 'react';
 import RoutesApp from './routes';
-import { genegateCondos } from './services/Condominium';
+import { generateCondos } from './services/Condominium';
 import GlobalStyle from './styles/global';
 
 function App() {
-  genegateCondos();
+  generateCondos();
   return (
     <>
       <RoutesApp />

@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import DefaultButton from "../../components/DefaultButton";
 import NavBar from "../../components/NavBar";
 import TextInput from "../../components/TextInput";
-import { getCondos, ICondos } from "../../services/Condominium";
+import { getCondosSync, ICondo } from "../../services/Condominium";
+import { onlyCnpjNumbers } from "../../utils/strings";
 
 import {
   Container,
@@ -17,7 +18,7 @@ import {
 } from "./styles";
 
 const Condominiums: React.FC = () => {
-  const [condos, setCondos] = useState<ICondos[]>([]);
+  const [condos, setCondos] = useState<ICondo[]>([]);
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
@@ -28,20 +29,12 @@ const Condominiums: React.FC = () => {
 
   async function loadCondos() {
     setLoading(true);
-    setCondos(await getCondos());
+    setCondos(await getCondosSync());
     setLoading(false);
   }
 
   function handleSelectCondominium(cnpj: string) {
-    navigate(`/condominios/${onlyNumbers(cnpj)}/home`);
-  }
-
-  function onlyNumbers(value: string): string {
-    return value
-      .replace(".", "")
-      .replace(".", "")
-      .replace("/", "")
-      .replace("-", "");
+    navigate(`/condominios/${onlyCnpjNumbers(cnpj)}/home`);
   }
 
   return (
