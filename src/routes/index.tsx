@@ -9,8 +9,8 @@ const RoutesApp: React.FC = () => (
     <Routes>
       <Route path="/" element={<Login />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/condominiums" element={<Condominiums />} />
-      <Route path="/condominiums/*" element={<AdminPainel />} />
+      <Route path="/condominios" element={<Condominiums />} />
+      <Route path="/condominios/*" element={<AdminPainel />} />
     </Routes>
   </BrowserRouter>
 );

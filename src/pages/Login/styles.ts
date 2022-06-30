@@ -18,9 +18,18 @@ export const RightContainer = styled.div`
   background-color: #FFFFFF;
 `;
 
-export const FormContainer = styled.div`
+export const Title = styled.p`
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+`;
+
+export const FormContainer = styled.form`
+  padding: 50px;
+  display: grid;
   position: absolute;
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   height: 450px;
   top: 50%;
   left: 50%;
@@ -28,4 +37,16 @@ export const FormContainer = styled.div`
   border-radius: 12px;
   background-color: #FFFFFF;
   box-shadow: rgb(0 0 0 / 25%) 0px 0px 6px;
+
+  a {
+    text-align: center;
+    color: rgb(56, 109, 130);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 12px;
+  }
+
+  input {
+    width: 100%;
+  }
 `;

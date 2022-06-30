@@ -1,6 +1,6 @@
 import React from 'react';
 import RoutesApp from './routes';
-import { genegateCondos } from './services/Utils';
+import { genegateCondos } from './services/Condominium';
 import GlobalStyle from './styles/global';
 
 function App() {

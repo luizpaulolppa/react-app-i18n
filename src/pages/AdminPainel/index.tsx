@@ -17,11 +17,11 @@ const AdminPainel: React.FC<IAdminPainel> = ({ children }) => {
         <Menu>
           <h1>menu</h1>
           <br/><br/>
-          <Link to={'/condominiums'}>condominiums</Link>
+          <Link to={'/condominios'}>condominiums</Link>
           <br/><br/>
-          <Link to={'/condominiums/dashboard'}>dashboard</Link>
+          <Link to={'/condominios/:cnpj/dashboard'}>dashboard</Link>
           <br/><br/>
-          <Link to={'/condominiums/payments'}>payments</Link>
+          <Link to={'/condominios/:cnpj/payments'}>payments</Link>
           <br/><br/>
           <Link to={'/login'}>login</Link>
         </Menu>

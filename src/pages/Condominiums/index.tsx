@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import DefaultButton from "../../components/DefaultButton";
 import NavBar from "../../components/NavBar";
-import { getCondos, ICondos } from "../../services/Utils";
+import TextInput from "../../components/TextInput";
+import { getCondos, ICondos } from "../../services/Condominium";
 
 import {
   Container,
   CondosContainer,
   FiltersContainers,
   Title,
-  TextInput,
-  Button,
   CondosListContainer,
   CondoCardContainer,
   LoadingCondos,
@@ -41,12 +40,12 @@ const Condominiums: React.FC = () => {
               maxLength={100}
               placeholder="Buscar condomínio (nome, cnpj, síndico...)"
             />
-            <Button>INCLUIR CONDOMÍNIO</Button>
+            <DefaultButton label="INCLUIR CONDOMÍNIO" />
           </FiltersContainers>
           <CondosListContainer>
             {loading && (
               <LoadingCondos>
-                <Text>Carregando os condomínios...</Text>
+                <Text>Carregando condomínios...</Text>
               </LoadingCondos>
             )}
             {condos.map(({ name, cnpj, syndic }, index) => (
@@ -59,7 +58,6 @@ const Condominiums: React.FC = () => {
           </CondosListContainer>
         </CondosContainer>
       </Container>
-      {/* <Link to={'/condominiums/dashboard'}>dashboard</Link> */}
     </>
   );
 };
