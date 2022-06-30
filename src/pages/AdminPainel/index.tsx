@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import NavBar from "../../components/NavBar";
-import Dashboard from "../Dashboard";
+import CondominiumHome from "../CondominiumHome";
 import Payments from "../Payments";
 import { Menu, Container, Body, Children } from "./styles";
 
@@ -19,7 +19,7 @@ const AdminPainel: React.FC<IAdminPainel> = ({ children }) => {
           <br/><br/>
           <Link to={'/condominios'}>condominiums</Link>
           <br/><br/>
-          <Link to={'/condominios/:cnpj/dashboard'}>dashboard</Link>
+          <Link to={'/condominios/:cnpj/home'}>dashboard</Link>
           <br/><br/>
           <Link to={'/condominios/:cnpj/payments'}>payments</Link>
           <br/><br/>
@@ -27,7 +27,7 @@ const AdminPainel: React.FC<IAdminPainel> = ({ children }) => {
         </Menu>
         <Children>
           <Routes>
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/home" element={<CondominiumHome />} />
             <Route path="/payments" element={<Payments />} />
           </Routes>
         </Children>

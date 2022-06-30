@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import DefaultButton from "../../components/DefaultButton";
 import NavBar from "../../components/NavBar";
 import TextInput from "../../components/TextInput";
@@ -19,6 +20,8 @@ const Condominiums: React.FC = () => {
   const [condos, setCondos] = useState<ICondos[]>([]);
   const [loading, setLoading] = useState(false);
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     loadCondos();
   }, []);
@@ -27,6 +30,18 @@ const Condominiums: React.FC = () => {
     setLoading(true);
     setCondos(await getCondos());
     setLoading(false);
+  }
+
+  function handleSelectCondominium(cnpj: string) {
+    navigate(`/condominios/${onlyNumbers(cnpj)}/home`);
+  }
+
+  function onlyNumbers(value: string): string {
+    return value
+      .replace(".", "")
+      .replace(".", "")
+      .replace("/", "")
+      .replace("-", "");
   }
 
   return (
@@ -49,7 +64,10 @@ const Condominiums: React.FC = () => {
               </LoadingCondos>
             )}
             {condos.map(({ name, cnpj, syndic }, index) => (
-              <CondoCardContainer key={index}>
+              <CondoCardContainer
+                key={index}
+                onClick={() => handleSelectCondominium(cnpj)}
+              >
                 <Text>{name}</Text>
                 <Text>CNPJ: {cnpj}</Text>
                 <Text>Síndico: {syndic}</Text>
