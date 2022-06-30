@@ -1,9 +1,14 @@
-import React from 'react';
+import React from "react";
+import AccountBalance from "../../components/AccountBalance";
+
+import { Container } from "./styles";
 
 const CondominiumHome: React.FC = () => {
   return (
-    <h1>CondominiumHome</h1>
+    <Container>
+      <AccountBalance />
+    </Container>
   );
-}
+};
 
 export default CondominiumHome;
