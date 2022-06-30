@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const defaultNavBarHeight = '70px';
+const defaultNavBarHeight = "70px";
 
 export const Container = styled.div`
   height: 100%;
@@ -15,7 +15,7 @@ export const Body = styled.div`
 export const Menu = styled.div`
   width: 100%;
   max-width: 250px;
-  background-color: rgb(249, 249, 249);;
+  background-color: rgb(249, 249, 249); ;
 `;
 
 export const Children = styled.div`
@@ -51,18 +51,24 @@ export const CondoText = styled.p`
   margin-top: 6px;
 `;
 
-export const ItemMenu = styled.div`
+interface IItemMenu {
+  active?: boolean;
+}
+
+export const ItemMenu = styled.div<IItemMenu>`
   display: flex;
   align-items: center;
   padding: 6px;
   padding-left: 16px;
   margin-top: 3px;
   cursor: pointer;
-  
+  ${({ active }) =>
+    !!active ? `border-right: solid 3px rgb(56, 109, 130);` : ``}
+  ${({ active }) => (!!active ? `background-color: #e6ebed;` : ``)}
+    ${({ active }) => (!!active ? `font-weight: bold;` : ``)}
+
   &:hover {
     background-color: #e6ebed;
-    border-right: solid 3px;
-    font-weight: bold;
   }
 `;
 

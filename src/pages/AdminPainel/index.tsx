@@ -47,7 +47,7 @@ const AdminPainel: React.FC<IAdminPainel> = ({ children }) => {
               RETORNAR A LISTA DE CONDOMÍNIOS
             </TextChangeCondo>
           </ChangeCondo>
-          <ItemMenu>
+          <ItemMenu active={true}>
             <TbHome size={20} />
             <ItemMenuName>Home</ItemMenuName>
           </ItemMenu>
@@ -79,13 +79,11 @@ const AdminPainel: React.FC<IAdminPainel> = ({ children }) => {
             <AiOutlineDownload size={20} />
             <ItemMenuName>Depositar</ItemMenuName>
           </ItemMenu>
-          {/* <Link to={"/condominios/:cnpj/payments"}>payments</Link>
-          <Link to={"/condominios/:cnpj/home"}>dashboard</Link> */}
         </Menu>
         <Children>
           <Routes>
-            <Route path="/home" element={<CondominiumHome />} />
-            <Route path="/payments" element={<Payments />} />
+            <Route path="/:cnpj/home" element={<CondominiumHome />} />
+            <Route path="/:cnpj/payments" element={<Payments />} />
           </Routes>
         </Children>
       </Body>
