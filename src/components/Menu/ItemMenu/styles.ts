@@ -25,6 +25,6 @@ export const ItemMenuContainer = styled.div<IItemMenu>`
 `;
 
 export const ItemMenuName = styled.div`
-  font-size: 12px;
+  font-size: 14px;
   margin-left: 16px;
 `;
