@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TbHome } from "react-icons/tb";
 import { RiNewspaperLine } from "react-icons/ri";
@@ -28,8 +28,18 @@ const Menu: React.FC<IMenu> = () => {
   const [isOpen, setIsOpen] = useState(true);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    setIsOpen(localStorage.getItem("isOpenMenu") === "true");
+  }, []);
+
   function handleChangeCondo() {
     navigate("/condominios");
+  }
+
+  function handleToggleMenu() {
+    const isOpenChanged = !isOpen;
+    setIsOpen(isOpenChanged);
+    localStorage.setItem("isOpenMenu", JSON.stringify(isOpenChanged));
   }
 
   return (
@@ -101,7 +111,7 @@ const Menu: React.FC<IMenu> = () => {
         />
       </MenuHeader>
 
-      <ArrowContainer onClick={() => setIsOpen(!isOpen)} center={!isOpen}>
+      <ArrowContainer onClick={handleToggleMenu} center={!isOpen}>
         {isOpen ? <ImArrowLeft2 size={22} /> : <ImArrowRight2 size={22} />}
       </ArrowContainer>
     </MenuContainer>
