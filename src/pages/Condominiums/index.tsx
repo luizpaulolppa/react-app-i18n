@@ -38,6 +38,10 @@ const Condominiums: React.FC = () => {
     navigate(`/condominios/${onlyCnpjNumbers(cnpj)}/home`);
   }
 
+  function handleNewCondominium() {
+    navigate(`/condominios/novo`);
+  }
+
   return (
     <>
       <NavBar />
@@ -51,7 +55,10 @@ const Condominiums: React.FC = () => {
               onChange={setSearch}
               value={search}
             />
-            <DefaultButton label="INCLUIR CONDOMÍNIO" />
+            <DefaultButton
+              label="INCLUIR CONDOMÍNIO"
+              onClick={handleNewCondominium}
+            />
           </FiltersContainers>
           <CondosListContainer>
             {loading && (

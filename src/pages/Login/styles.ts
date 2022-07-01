@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   height: 100%;
-  /* background-color: black; */
 `;
 
 export const LeftContainer = styled.div`

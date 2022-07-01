@@ -13,6 +13,10 @@ export const Container = styled.div`
 export const TransactionsContainer = styled.div`
   display: flex;
   margin-top: 16px;
+
+  @media only screen and (max-width: 1200px) {
+    display: grid;
+  }
 `;
 
 export const TransactionsArea = styled.div`
@@ -23,6 +27,11 @@ export const TransactionsArea = styled.div`
 
   & + & {
     margin-left: 12px;
+
+    @media only screen and (max-width: 1200px) {
+      margin-left: 0px;
+      margin-top: 16px;
+    }
   }
 `;
 
@@ -91,7 +100,6 @@ export const TransactionDocumentDot = styled.div`
 
 export const CondoShopTitle = styled.p`
   margin-top: 16px;
-  margin-bottom: 16px;
   color: rgb(44, 44, 44);
   font-size: 18px;
   line-height: 27px;
@@ -99,17 +107,16 @@ export const CondoShopTitle = styled.p`
 
 export const CondoShopBanners = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `;
 
 export const CondoShopBanner = styled.div`
+  cursor: pointer;
   height: 200px;
   width: 300px;
   border-radius: 5px;
-  cursor: pointer;
-
-  & + & {
-    margin-left: 12px;
-  }
+  margin-top: 16px;
+  margin-right: 12px;
 `;
 
 export const CondoShopBannerReceitaGarantida = styled(CondoShopBanner)`
