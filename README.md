@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Access this link to show the [app](https://portal-condoconta.herokuapp.com/).
 
 ## Available Scripts
 

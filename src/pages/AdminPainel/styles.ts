@@ -20,6 +20,7 @@ export const Menu = styled.div`
 
 export const Children = styled.div`
   width: 100%;
+  overflow-y: auto;
 `;
 
 export const ChangeCondo = styled.div`
