@@ -20,6 +20,7 @@ import {
 const Condominiums: React.FC = () => {
   const [condos, setCondos] = useState<ICondo[]>([]);
   const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState("");
 
   const navigate = useNavigate();
 
@@ -47,6 +48,8 @@ const Condominiums: React.FC = () => {
             <TextInput
               maxLength={100}
               placeholder="Buscar condomínio (nome, cnpj, síndico...)"
+              onChange={setSearch}
+              value={search}
             />
             <DefaultButton label="INCLUIR CONDOMÍNIO" />
           </FiltersContainers>
@@ -56,16 +59,20 @@ const Condominiums: React.FC = () => {
                 <Text>Carregando condomínios...</Text>
               </LoadingCondos>
             )}
-            {condos.map(({ name, cnpj, syndic }, index) => (
-              <CondoCardContainer
-                key={index}
-                onClick={() => handleSelectCondominium(cnpj)}
-              >
-                <Text>{name}</Text>
-                <Text>CNPJ: {cnpj}</Text>
-                <Text>Síndico: {syndic}</Text>
-              </CondoCardContainer>
-            ))}
+            {condos
+              .filter((condo) =>
+                condo.name.toLowerCase().includes(search.toLowerCase())
+              )
+              .map(({ name, cnpj, syndic }, index) => (
+                <CondoCardContainer
+                  key={index}
+                  onClick={() => handleSelectCondominium(cnpj)}
+                >
+                  <Text>{name}</Text>
+                  <Text>CNPJ: {cnpj}</Text>
+                  <Text>Síndico: {syndic}</Text>
+                </CondoCardContainer>
+              ))}
           </CondosListContainer>
         </CondosContainer>
       </Container>
