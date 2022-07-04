@@ -16,6 +16,17 @@ export const Button = styled.button<IButton>`
   ${({ secondary }) => !!secondary ? `background-color: #FFFFFF;` : ``}
   ${({ secondary }) => !!secondary ? `color: rgb(56, 109, 130);` : ``}
 
+  svg {
+    animation: rotate 1.5s linear infinite;
+  
+    @keyframes rotate {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  }
+
+
   &:hover {
     opacity: 0.9;
   }
