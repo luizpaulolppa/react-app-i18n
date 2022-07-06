@@ -18,8 +18,13 @@ const DefaultButton: React.FC<IDefaultButton> = ({
   onClick,
   loading = false,
 }) => {
+  function handleOnClick() {
+    if (loading) return;
+    onClick && onClick();
+  }
+
   return (
-    <Button type={type} secondary={secondary} onClick={onClick}>
+    <Button type={type} secondary={secondary} onClick={handleOnClick}>
       {loading && <BiLoaderAlt size={16} />}
       {!loading ? label : ""}
     </Button>
