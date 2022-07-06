@@ -7,14 +7,18 @@ export const Container = styled.div`
 
 export const LeftContainer = styled.div`
   display: flex;
-  width: 50%;
+  width: 100%;
   background-color: #3e4651;
 `;
 
 export const RightContainer = styled.div`
   display: flex;
-  width: 50%;
+  width: 100%;
   background-color: #FFFFFF;
+
+  @media only screen and (max-width: 900px) {
+    display: none;
+  }
 `;
 
 export const Title = styled.p`

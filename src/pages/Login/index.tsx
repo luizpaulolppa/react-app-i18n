@@ -23,29 +23,25 @@ const Login: React.FC = () => {
     event.preventDefault();
     setLoading(true);
     await auth(cpf, password);
-    navigate('/condominios');
+    navigate("/condominios");
     setLoading(false);
   }
 
   return (
     <Container>
-      <LeftContainer></LeftContainer>
-      <RightContainer></RightContainer>
+      <LeftContainer />
+      <RightContainer />
       <FormContainer onSubmit={handleSubmit}>
         <Title>Login</Title>
-        <TextInputGroup
-          label="CPF"
-          onChange={setCpf}
-          value={cpf}
+        <TextInputGroup label="CPF" onChange={setCpf} value={cpf} />
+        <TextInputGroup label="Senha" onChange={setPassword} value={password} />
+        <DefaultButton
+          label="ENTRAR NO PORTAL"
+          type="submit"
+          loading={loading}
         />
-        <TextInputGroup
-          label="Senha"
-          onChange={setPassword}
-          value={password}
-        />
-        <DefaultButton label="ENTRAR NO PORTAL" type="submit" loading={loading} />
         <DefaultButton label="QUERO ME CADASTRAR" secondary />
-        <Link to={'/'}>ESQUECI A SENHA</Link>
+        <Link to={"/"}>ESQUECI A SENHA</Link>
       </FormContainer>
     </Container>
   );
